@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stores Sales Prediction</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+
+            background: url('../static/img/bg-1.jpg');
+            background-size: cover;
+
+        }
+
+        .co {
+
+            background-color: rgba(255, 255, 255, 0.13);
+
+            border-radius: 10px;
+
+            backdrop-filter: blur(3px);
+
+            border: 2px solid rgba(255, 255, 255, 0.1);
+
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+
+        }
+
+
+
+        .co * {
+
+            font-family: 'Poppins', sans-serif;
+
+            color: #000;
+
+            letter-spacing: 0.5px;
+
+            outline: none;
+
+            border: none;
+
+        }
+
+
+
+        input {
+
+            display: block;
+
+            height: 50px;
+
+            width: 95%;
+
+            background-color: rgb(255, 255, 255);
+
+            border-radius: 10px;
+
+            padding: 0 10px;
+
+            color: #000;
+
+            margin-top: 8px;
+
+            font-size: 14px;
+
+            font-weight: 300;
+
+        }
+
+        ::placeholder {
+
+            color: #000;
+            text-decoration: solid;
+
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row justify-content-end mt-2">
+
+            <div class="co col-8 mt-2">
+
+                <center>
+
+                    <div class="login mt-5">
+
+                        <!-- <h1 class="text-dark">Stores Sales Prediction</h1> -->
+
+                        <form class="p-3" action="{{ url_for('predict')}}" method="post">
+                            <div class="row p-0 m-0">
+                                <div class="col-6">
+                                    <input type="text" name="Item_Identifiercy" placeholder="Item_Identifiercy"
+                                        required="required" /><br>
+                                </div> 
+                                <div class="col-6">
+                                    <input type="text" name="Item_Weight" placeholder="Item_Weight"
+                                        required="required" /><br>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="Item_Fat_Content" placeholder="Item_Fat_Content"
+                                        required="required" /><br>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="Item_Visibility" placeholder="Item_Visibility"
+                                        required="required" /><br>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="Item_Type" placeholder="Item_Type"
+                                        required="required" /><br>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="Item_MRP" placeholder="Item_MRP" required="required" /><br>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="Outlet_Identifier" placeholder="Outlet_Identifier"
+                                        required="required" /><br>
+                                </div>
+                                <div class="col-6">
+
+                                    <input type="text" name="Outlet_Establishment_Year"
+                                        placeholder="Outlet_Establishment_Year" required="required" /><br>
+                                </div>
+                                <div class="col-6">
+
+                                    <input type="text" name="Outlet_Size" placeholder="Outlet_Size"
+                                        required="required" /><br>
+                                </div>
+                                <div class="col-6">
+
+                                    <input type="text" name="Outlet_Location_Type" placeholder="Outlet_Location_Type"
+                                        required="required" /><br>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="Outlet_Type" placeholder="Outlet_Type"
+                                        required="required" /><br>
+                                </div>
+                            </div>
+                                <button type="submit" style="background: #ffc0cb;" class="btn btn-block btn-large">Predict</button>
+
+                        </form>
+
+                    </div>
+
+                    <div class="mt-0 mb-4">
+
+                        <p class="text-light h3">Pridicted Sales for the product is</p><h2 class="text-light">{{prediction}}</h2>
+
+                    </div>
+
+                </center>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+</body>
+
+
+
+</html>
